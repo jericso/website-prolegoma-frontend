@@ -1,5 +1,3 @@
-import './Element.css';
-
 const Element = ({ value }) => (
   <>
     <td bgcolor="blue">{value}</td>

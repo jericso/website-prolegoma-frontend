@@ -1,0 +1,20 @@
+img {
+    width: 8em;
+    height: auto;
+    /*to preserve the aspect ratio of the image*/
+}
+
+td {
+    border: 1px solid #ffffff;
+    width: 8em;
+    max-width: 8em;
+    height: 8em;
+    line-height: 1em;
+    text-align: center;
+    overflow: hidden;
+    padding: 1em;
+    color: white;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20pt;
+}
