@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import CountriesLine from './components/CountriesLine';
 import countryService from './services/country';
 
+import './App.css';
+
 const App = () => {
   const firstIndex = Math.floor(Math.random() * 229);
   const [countries, setCountries] = useState(null);
