@@ -88,6 +88,16 @@ const App = () => {
           offset={2}
           onCountryClick={(country) => handleCountryClick(country)}
         />
+        <CountriesLineMobile
+          countries={countries}
+          offset={4}
+          onCountryClick={(country) => handleCountryClick(country)}
+        />
+        <CountriesLineMobile
+          countries={countries}
+          offset={6}
+          onCountryClick={(country) => handleCountryClick(country)}
+        />
         {modalDialog}
       </div>
     );

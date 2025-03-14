@@ -19,7 +19,7 @@ const CountriesLine = ({ countries, offset, onCountryClick }) => {
   };
 
   return (
-    <table>
+    <table className="flag-table">
       <tbody>
         <tr>{renderFlags()}</tr>
       </tbody>

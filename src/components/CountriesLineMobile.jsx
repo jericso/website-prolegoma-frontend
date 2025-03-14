@@ -10,7 +10,7 @@ const CountriesLine = ({ countries, offset, onCountryClick }) => {
           key={country.cca2}
           srcValue={country.flags['svg']}
           elementClass={'flag-cell-mobile'}
-          imageClass={'flag'}
+          imageClass={'flag-mobile'}
           onClick={() => onCountryClick(country)}
         />
       );
@@ -19,7 +19,7 @@ const CountriesLine = ({ countries, offset, onCountryClick }) => {
   };
 
   return (
-    <table>
+    <table className="flag-table">
       <tbody>
         <tr>{renderFlags()}</tr>
       </tbody>
