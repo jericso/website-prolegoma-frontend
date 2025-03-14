@@ -8,7 +8,7 @@ const CountriesLine = ({ countries, offset, onCountryClick }) => {
       elements.push(
         <ClickableImageElement
           key={country.cca2}
-          srcValue={country.flags['png']}
+          srcValue={country.flags['svg']}
           onClick={() => onCountryClick(country)}
         />
       );

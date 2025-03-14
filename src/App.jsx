@@ -7,7 +7,6 @@ import countryService from './services/country';
 import './App.css';
 
 const App = () => {
-  const [firstIndex, setFirstIndex] = useState(Math.floor(Math.random() * 229));
   const [countries, setCountries] = useState(null);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [show, setShow] = useState(false);
@@ -39,17 +38,17 @@ const App = () => {
         <>
           <CountriesLine
             countries={countries}
-            offset={firstIndex}
+            offset={0}
             onCountryClick={(country) => handleCountryClick(country)}
           />
           <CountriesLine
             countries={countries}
-            offset={firstIndex + 7}
+            offset={7}
             onCountryClick={(country) => handleCountryClick(country)}
           />
           <CountriesLine
             countries={countries}
-            offset={firstIndex + 14}
+            offset={14}
             onCountryClick={(country) => handleCountryClick(country)}
           />
         </>
