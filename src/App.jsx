@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-import ElementsLine from './components/ElementsLine';
-import ImageElementsLine from './components/ImageElementsLine';
 import CountriesLine from './components/CountriesLine';
 import countryService from './services/country';
 
 const App = () => {
+  const firstIndex = Math.floor(Math.random() * 229);
   const [countries, setCountries] = useState(null);
 
   useEffect(() => {
     countryService
       .getAll()
       .then((countries) => {
+        console.log(`total countries: ${countries.length}`);
         setCountries(countries);
       })
       .catch((error) => {
@@ -24,30 +24,27 @@ const App = () => {
 
   return (
     <div>
-      <ImageElementsLine />
       {countries ? (
         <>
           <CountriesLine
             countries={countries}
-            offset={0}
+            offset={firstIndex}
             onCountryClick={(country) => handleCountryClick(country)}
           />
           <CountriesLine
             countries={countries}
-            offset={1}
+            offset={firstIndex + 7}
             onCountryClick={(country) => handleCountryClick(country)}
           />
           <CountriesLine
             countries={countries}
-            offset={2}
+            offset={firstIndex + 14}
             onCountryClick={(country) => handleCountryClick(country)}
           />
         </>
       ) : (
         ''
       )}
-      <ImageElementsLine />
-      <ElementsLine />
     </div>
   );
 };

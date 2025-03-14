@@ -3,7 +3,7 @@ import ClickableImageElement from './ClickableImageElement';
 const CountriesLine = ({ countries, offset, onCountryClick }) => {
   const renderFlags = () => {
     const elements = [];
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i <= 6; i++) {
       let country = countries[i + offset];
       elements.push(
         <ClickableImageElement
