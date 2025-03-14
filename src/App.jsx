@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import CountriesLine from './components/CountriesLine';
+import CountriesLineMobile from './components/CountriesLineMobile';
 import countryService from './services/country';
 import useDeviceDetection from './hooks/useDeviceDetection';
 
@@ -34,49 +35,63 @@ const App = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log(`Using device: ${device}`);
-
-  return (
-    <div>
-      {countries && device !== 'Mobile' ? (
-        <>
-          <CountriesLine
-            countries={countries}
-            offset={0}
-            onCountryClick={(country) => handleCountryClick(country)}
-          />
-          <CountriesLine
-            countries={countries}
-            offset={7}
-            onCountryClick={(country) => handleCountryClick(country)}
-          />
-          <CountriesLine
-            countries={countries}
-            offset={14}
-            onCountryClick={(country) => handleCountryClick(country)}
-          />
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>
-                {selectedCountry ? selectedCountry.name['common'] : ''}
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              The capital of the selected country is{' '}
-              {selectedCountry ? selectedCountry.capital[0] : ''}
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="primary" onClick={handleClose}>
-                Close
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </>
-      ) : (
-        '[mobile version]'
-      )}
-    </div>
+  let modalDialog = (
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>
+          {selectedCountry ? selectedCountry.name['common'] : ''}
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        The capital of the selected country is{' '}
+        {selectedCountry ? selectedCountry.capital[0] : ''}
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="primary" onClick={handleClose}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
+
+  if (countries && device !== 'Mobile') {
+    return (
+      <div>
+        <CountriesLine
+          countries={countries}
+          offset={0}
+          onCountryClick={(country) => handleCountryClick(country)}
+        />
+        <CountriesLine
+          countries={countries}
+          offset={7}
+          onCountryClick={(country) => handleCountryClick(country)}
+        />
+        <CountriesLine
+          countries={countries}
+          offset={14}
+          onCountryClick={(country) => handleCountryClick(country)}
+        />
+        {modalDialog}
+      </div>
+    );
+  } else if (countries && device === 'Mobile') {
+    return (
+      <div>
+        <CountriesLineMobile
+          countries={countries}
+          offset={0}
+          onCountryClick={(country) => handleCountryClick(country)}
+        />
+        <CountriesLineMobile
+          countries={countries}
+          offset={2}
+          onCountryClick={(country) => handleCountryClick(country)}
+        />
+        {modalDialog}
+      </div>
+    );
+  } else return null;
 };
 
 export default App;

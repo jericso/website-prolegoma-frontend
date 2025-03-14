@@ -1,7 +1,12 @@
-const ClickableImageElement = ({ srcValue, onClick }) => (
+const ClickableImageElement = ({
+  srcValue,
+  elementClass,
+  imageClass,
+  onClick,
+}) => (
   <>
-    <td className="flag-cell">
-      <img className="flag" src={srcValue} onClick={onClick} />
+    <td className={elementClass}>
+      <img className={imageClass} src={srcValue} onClick={onClick} />
     </td>
   </>
 );
