@@ -1,7 +1,7 @@
 const ClickableImageElement = ({ srcValue, onClick }) => (
   <>
-    <td class="flag-cell">
-      <img class="flag" src={srcValue} onClick={onClick} />
+    <td className="flag-cell">
+      <img className="flag" src={srcValue} onClick={onClick} />
     </td>
   </>
 );

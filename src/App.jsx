@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import CountriesLine from './components/CountriesLine';
 import countryService from './services/country';
 
 import './App.css';
 
 const App = () => {
-  const firstIndex = Math.floor(Math.random() * 229);
+  const [firstIndex, setFirstIndex] = useState(Math.floor(Math.random() * 229));
   const [countries, setCountries] = useState(null);
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     countryService
@@ -22,7 +26,12 @@ const App = () => {
 
   const handleCountryClick = (country) => {
     console.log(country);
+    setSelectedCountry(country);
+    handleShow();
   };
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div>
@@ -47,6 +56,22 @@ const App = () => {
       ) : (
         ''
       )}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            {selectedCountry ? selectedCountry.name['common'] : ''}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          The capital of the selected country is{' '}
+          {selectedCountry ? selectedCountry.capital[0] : ''}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
