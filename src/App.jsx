@@ -3,10 +3,12 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import CountriesLine from './components/CountriesLine';
 import countryService from './services/country';
+import useDeviceDetection from './hooks/useDeviceDetection';
 
 import './App.css';
 
 const App = () => {
+  const device = useDeviceDetection();
   const [countries, setCountries] = useState(null);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [show, setShow] = useState(false);
@@ -32,9 +34,11 @@ const App = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  console.log(`Using device: ${device}`);
+
   return (
     <div>
-      {countries ? (
+      {countries && device !== 'Mobile' ? (
         <>
           <CountriesLine
             countries={countries}
@@ -51,26 +55,26 @@ const App = () => {
             offset={14}
             onCountryClick={(country) => handleCountryClick(country)}
           />
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>
+                {selectedCountry ? selectedCountry.name['common'] : ''}
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              The capital of the selected country is{' '}
+              {selectedCountry ? selectedCountry.capital[0] : ''}
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary" onClick={handleClose}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </>
       ) : (
-        ''
+        '[mobile version]'
       )}
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>
-            {selectedCountry ? selectedCountry.name['common'] : ''}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          The capital of the selected country is{' '}
-          {selectedCountry ? selectedCountry.capital[0] : ''}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
     </div>
   );
 };
