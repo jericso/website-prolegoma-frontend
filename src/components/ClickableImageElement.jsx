@@ -2,11 +2,12 @@ const ClickableImageElement = ({
   srcValue,
   elementClass,
   imageClass,
+  hoverClass,
   onClick,
 }) => (
   <>
     <td className={elementClass}>
-      <div className="flag-grow">
+      <div className={hoverClass}>
         <img className={imageClass} src={srcValue} onClick={onClick} />
       </div>
     </td>

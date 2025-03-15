@@ -19,6 +19,7 @@ const CountriesLine = ({
             srcValue={country.flags['svg']}
             elementClass={'flag-cell-mobile'}
             imageClass={'flag-mobile'}
+            hoverClass={''}
             onClick={() => onCountryClick(country)}
           />
         );
@@ -29,6 +30,7 @@ const CountriesLine = ({
             srcValue={'/logo.svg'}
             elementClass={'flag-cell-mobile'}
             imageClass={'flag-mobile'}
+            hoverClass={''}
             onLogoClick={() => onLogoClick()}
           />
         );
