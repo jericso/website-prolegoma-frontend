@@ -32,6 +32,10 @@ const App = () => {
     handleShow();
   };
 
+  const handleLogoClick = () => {
+    console.log('Logo clicked');
+  };
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -63,17 +67,34 @@ const App = () => {
         <CountriesLine
           countries={countries}
           offset={0}
+          centerOpen={false}
+          useLogo={false}
           onCountryClick={(country) => handleCountryClick(country)}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountriesLine
           countries={countries}
           offset={7}
+          centerOpen={true}
+          useLogo={false}
           onCountryClick={(country) => handleCountryClick(country)}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountriesLine
           countries={countries}
           offset={14}
+          centerOpen={true}
+          useLogo={true}
           onCountryClick={(country) => handleCountryClick(country)}
+          onLogoClick={() => handleLogoClick()}
+        />
+        <CountriesLine
+          countries={countries}
+          offset={21}
+          centerOpen={false}
+          useLogo={false}
+          onCountryClick={(country) => handleCountryClick(country)}
+          onLogoClick={() => handleLogoClick()}
         />
         {modalDialog}
       </div>
@@ -83,22 +104,22 @@ const App = () => {
       <div>
         <CountriesLineMobile
           countries={countries}
-          offset={13}
+          offset={20}
           onCountryClick={(country) => handleCountryClick(country)}
         />
         <CountriesLineMobile
           countries={countries}
-          offset={15}
+          offset={22}
           onCountryClick={(country) => handleCountryClick(country)}
         />
         <CountriesLineMobile
           countries={countries}
-          offset={17}
+          offset={24}
           onCountryClick={(country) => handleCountryClick(country)}
         />
         <CountriesLineMobile
           countries={countries}
-          offset={19}
+          offset={26}
           onCountryClick={(country) => handleCountryClick(country)}
         />
         {modalDialog}
