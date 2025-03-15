@@ -13,19 +13,20 @@
 .flag-cell {
     width: 10em;
     height: auto;
-    border: 1px solid #ffffff;
     padding: 1em;
 }
 
 .flag-cell-mobile {
     width: 50%;
     height: auto;
-    border: 1px solid #ffffff;
     padding: 1em;
 }
 
 .flag-table {
     width: 100%;
     table-layout: auto;
-    overflow-wrap: break-word;
+}
+
+.copyright-footer {
+    text-align: center;
 }

@@ -61,6 +61,12 @@ const App = () => {
     </Modal>
   );
 
+  let copyright = (
+    <footer className="copyright-footer">
+      <small>&copy; Copyright {new Date().getFullYear()} Prolegoma.com</small>
+    </footer>
+  );
+
   if (countries && device !== 'Mobile') {
     return (
       <div>
@@ -97,6 +103,7 @@ const App = () => {
           onLogoClick={() => handleLogoClick()}
         />
         {modalDialog}
+        {copyright}
       </div>
     );
   } else if (countries && device === 'Mobile') {
@@ -127,6 +134,7 @@ const App = () => {
           useLogo={true}
         />
         {modalDialog}
+        {copyright}
       </div>
     );
   } else return null;
