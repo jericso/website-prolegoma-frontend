@@ -6,7 +6,9 @@ const ClickableImageElement = ({
 }) => (
   <>
     <td className={elementClass}>
-      <img className={imageClass} src={srcValue} onClick={onClick} />
+      <div className="flag-grow">
+        <img className={imageClass} src={srcValue} onClick={onClick} />
+      </div>
     </td>
   </>
 );

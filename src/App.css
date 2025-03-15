@@ -27,6 +27,17 @@
     table-layout: auto;
 }
 
+.flag-grow img {
+    transition: .25s ease;
+}
+
+.flag-grow img:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: .25s ease;
+}
+
 .copyright-footer {
     text-align: center;
 }
