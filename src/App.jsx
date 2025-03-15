@@ -43,8 +43,11 @@ const App = () => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        The capital of the selected country is{' '}
-        {selectedCountry ? selectedCountry.capital[0] : ''}
+        The capital of {selectedCountry ? selectedCountry.name['common'] : ''}{' '}
+        is{' '}
+        {selectedCountry && selectedCountry.hasOwnProperty('capital')
+          ? selectedCountry.capital[0]
+          : '[no capital]'}
       </Modal.Body>
       <Modal.Footer>
         <Button variant="primary" onClick={handleClose}>
@@ -80,22 +83,22 @@ const App = () => {
       <div>
         <CountriesLineMobile
           countries={countries}
-          offset={0}
+          offset={13}
           onCountryClick={(country) => handleCountryClick(country)}
         />
         <CountriesLineMobile
           countries={countries}
-          offset={2}
+          offset={15}
           onCountryClick={(country) => handleCountryClick(country)}
         />
         <CountriesLineMobile
           countries={countries}
-          offset={4}
+          offset={17}
           onCountryClick={(country) => handleCountryClick(country)}
         />
         <CountriesLineMobile
           countries={countries}
-          offset={6}
+          offset={19}
           onCountryClick={(country) => handleCountryClick(country)}
         />
         {modalDialog}
