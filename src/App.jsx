@@ -106,21 +106,25 @@ const App = () => {
           countries={countries}
           offset={20}
           onCountryClick={(country) => handleCountryClick(country)}
+          useLogo={false}
         />
         <CountriesLineMobile
           countries={countries}
           offset={22}
           onCountryClick={(country) => handleCountryClick(country)}
+          useLogo={false}
         />
         <CountriesLineMobile
           countries={countries}
           offset={24}
           onCountryClick={(country) => handleCountryClick(country)}
+          useLogo={false}
         />
         <CountriesLineMobile
           countries={countries}
           offset={26}
           onCountryClick={(country) => handleCountryClick(country)}
+          useLogo={true}
         />
         {modalDialog}
       </div>
