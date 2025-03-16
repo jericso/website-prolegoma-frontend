@@ -31,7 +31,7 @@ const CountriesLine = ({
             elementClass={'flag-cell-mobile'}
             imageClass={'flag-mobile'}
             hoverClass={''}
-            onLogoClick={() => onLogoClick()}
+            onClick={() => onLogoClick()}
           />
         );
       }
@@ -40,7 +40,7 @@ const CountriesLine = ({
   };
 
   return (
-    <table className="flag-table">
+    <table>
       <tbody>
         <tr>{renderFlags()}</tr>
       </tbody>

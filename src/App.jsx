@@ -34,6 +34,7 @@ const App = () => {
   };
 
   const handleLogoClick = () => {
+    console.log('logo clicked');
     handleShowAbout();
   };
 
@@ -134,26 +135,30 @@ const App = () => {
         <CountriesLineMobile
           countries={countries}
           offset={20}
-          onCountryClick={(country) => handleCountryClick(country)}
           useLogo={false}
+          onCountryClick={(country) => handleCountryClick(country)}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountriesLineMobile
           countries={countries}
           offset={22}
-          onCountryClick={(country) => handleCountryClick(country)}
           useLogo={false}
+          onCountryClick={(country) => handleCountryClick(country)}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountriesLineMobile
           countries={countries}
           offset={24}
-          onCountryClick={(country) => handleCountryClick(country)}
           useLogo={false}
+          onCountryClick={(country) => handleCountryClick(country)}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountriesLineMobile
           countries={countries}
           offset={26}
-          onCountryClick={(country) => handleCountryClick(country)}
           useLogo={true}
+          onCountryClick={(country) => handleCountryClick(country)}
+          onLogoClick={() => handleLogoClick()}
         />
         {modalCountry}
         {modalAbout}
