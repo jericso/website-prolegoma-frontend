@@ -39,14 +39,12 @@ const CountriesLine = ({
         );
       } else {
         if (useCompany && i === 2) {
-          console.log(useCompany, i);
           elements.push(
             <td key={country.cca2} className="prolegoma-heading">
               Prolegoma
             </td>
           );
         } else if (useCompany && i === 4) {
-          console.log(useCompany, i);
           elements.push(
             <td key={country.cca2} className="prolegoma-directions">
               click flag to see country details
@@ -57,12 +55,11 @@ const CountriesLine = ({
         }
       }
     }
-    console.log(useCompany);
     return elements;
   };
 
   return (
-    <table className="flag-table">
+    <table>
       <tbody>
         <tr>{renderFlags()}</tr>
       </tbody>
