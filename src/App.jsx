@@ -63,7 +63,7 @@ const App = () => {
 
   let copyright = (
     <footer className="copyright-footer">
-      <small>&copy; Copyright {new Date().getFullYear()} Prolegoma.com</small>
+      &copy; Copyright {new Date().getFullYear()} Prolegoma.com
     </footer>
   );
 
@@ -75,6 +75,7 @@ const App = () => {
           offset={0}
           centerOpen={false}
           useLogo={false}
+          useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
         />
@@ -83,6 +84,7 @@ const App = () => {
           offset={7}
           centerOpen={true}
           useLogo={false}
+          useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
         />
@@ -91,6 +93,7 @@ const App = () => {
           offset={14}
           centerOpen={true}
           useLogo={true}
+          useCompany={true}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
         />
@@ -99,6 +102,7 @@ const App = () => {
           offset={21}
           centerOpen={false}
           useLogo={false}
+          useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
         />

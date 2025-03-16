@@ -5,6 +5,7 @@ const CountriesLine = ({
   offset,
   centerOpen,
   useLogo,
+  useCompany,
   onCountryClick,
   onLogoClick,
 }) => {
@@ -30,16 +31,33 @@ const CountriesLine = ({
           <ClickableImageElement
             key={country.cca2}
             srcValue={'/logo.svg'}
-            elementClass={'flag-cell'}
-            imageClass={'flag'}
+            elementClass={'flag-cell-logo'}
+            imageClass={'flag-logo'}
             hoverClass={'flag-grow'}
             onClick={() => onLogoClick()}
           />
         );
       } else {
-        elements.push(<td key={country.cca2} className="flag-cell"></td>);
+        if (useCompany && i === 2) {
+          console.log(useCompany, i);
+          elements.push(
+            <td key={country.cca2} className="prolegoma-heading">
+              Prolegoma
+            </td>
+          );
+        } else if (useCompany && i === 4) {
+          console.log(useCompany, i);
+          elements.push(
+            <td key={country.cca2} className="prolegoma-directions">
+              click flags to see country details
+            </td>
+          );
+        } else {
+          elements.push(<td key={country.cca2} className="flag-cell"></td>);
+        }
       }
     }
+    console.log(useCompany);
     return elements;
   };
 
