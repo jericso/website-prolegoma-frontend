@@ -47,7 +47,9 @@ const CountriesLine = ({
         } else if (useCompany && i === 4) {
           elements.push(
             <td key={country.cca2} className="prolegoma-directions">
-              click flag to see country details
+              click flag for country details
+              <br />
+              refresh page for new set
             </td>
           );
         } else {

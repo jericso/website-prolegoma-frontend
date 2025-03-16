@@ -12,7 +12,8 @@ const App = () => {
   const device = useDeviceDetection();
   const [countries, setCountries] = useState(null);
   const [selectedCountry, setSelectedCountry] = useState(null);
-  const [show, setShow] = useState(false);
+  const [showCountry, setShowCountry] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
 
   useEffect(() => {
     countryService
@@ -29,18 +30,20 @@ const App = () => {
   const handleCountryClick = (country) => {
     console.log(country);
     setSelectedCountry(country);
-    handleShow();
+    handleShowCountry();
   };
 
   const handleLogoClick = () => {
-    console.log('Logo clicked');
+    handleShowAbout();
   };
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleCloseCountry = () => setShowCountry(false);
+  const handleShowCountry = () => setShowCountry(true);
+  const handleCloseAbout = () => setShowAbout(false);
+  const handleShowAbout = () => setShowAbout(true);
 
-  let modalDialog = (
-    <Modal show={show} onHide={handleClose}>
+  let modalCountry = (
+    <Modal show={showCountry} onHide={handleCloseCountry}>
       <Modal.Header closeButton>
         <Modal.Title>
           {selectedCountry ? selectedCountry.name['common'] : ''}
@@ -54,7 +57,21 @@ const App = () => {
           : '[no capital]'}
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={handleClose}>
+        <Button variant="primary" onClick={handleCloseCountry}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+
+  let modalAbout = (
+    <Modal show={showAbout} onHide={handleCloseAbout}>
+      <Modal.Header closeButton>
+        <Modal.Title>About Prolegoma</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>[content here]</Modal.Body>
+      <Modal.Footer>
+        <Button variant="primary" onClick={handleCloseAbout}>
           Close
         </Button>
       </Modal.Footer>
@@ -106,7 +123,8 @@ const App = () => {
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
         />
-        {modalDialog}
+        {modalCountry}
+        {modalAbout}
         {copyright}
       </div>
     );
@@ -137,7 +155,8 @@ const App = () => {
           onCountryClick={(country) => handleCountryClick(country)}
           useLogo={true}
         />
-        {modalDialog}
+        {modalCountry}
+        {modalAbout}
         {copyright}
       </div>
     );
