@@ -49,7 +49,7 @@ const CountriesLine = ({
           console.log(useCompany, i);
           elements.push(
             <td key={country.cca2} className="prolegoma-directions">
-              click flags to see country details
+              click flag to see country details
             </td>
           );
         } else {
