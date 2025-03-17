@@ -27,6 +27,18 @@ const App = () => {
       });
   }, []);
 
+  const handleLogoClick = () => {
+    countryService
+      .getAll()
+      .then((countries) => {
+        console.log(`total countries: ${countries.length}`);
+        setCountries(countries);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const handleAboutClick = () => {
     handleShowAbout();
   };
@@ -88,7 +100,7 @@ const App = () => {
           useLogo={false}
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleAboutClick()}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountriesLine
           countries={countries}
@@ -97,7 +109,7 @@ const App = () => {
           useLogo={false}
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleAboutClick()}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountriesLine
           countries={countries}
@@ -106,7 +118,7 @@ const App = () => {
           useLogo={false}
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleAboutClick()}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountriesLine
           countries={countries}
@@ -115,7 +127,7 @@ const App = () => {
           useLogo={true}
           useCompany={true}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleAboutClick()}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountriesLine
           countries={countries}
@@ -124,7 +136,7 @@ const App = () => {
           useLogo={false}
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleAboutClick()}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountryDialog
           country={selectedCountry}

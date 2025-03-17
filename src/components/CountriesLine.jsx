@@ -47,9 +47,9 @@ const CountriesLine = ({
         } else if (useCompany && i === 4) {
           elements.push(
             <td key={country.cca2} className="prolegoma-directions">
-              refresh for new flags
+              Click flag for country details
               <br />
-              click for country details
+              Click logo for new flags
             </td>
           );
         } else {
