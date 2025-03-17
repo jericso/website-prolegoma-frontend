@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import CountriesLine from './components/CountriesLine';
@@ -85,6 +86,36 @@ const App = () => {
     </footer>
   );
 
+  let navigation = (
+    <Nav
+      className="justify-content-center"
+      variant="underline"
+      activeKey=""
+      onSelect={(selectedKey) => {
+        if (selectedKey === 'about') {
+          handleLogoClick();
+        } else {
+          alert(`selected ${selectedKey}`);
+        }
+      }}
+    >
+      <Nav.Item>
+        <Nav.Link eventKey="home" href="/">
+          Home
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="portfolio">Portfolio</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="contact">Contact</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="about">About</Nav.Link>
+      </Nav.Item>
+    </Nav>
+  );
+
   if (countries && device !== 'Mobile') {
     return (
       <div>
@@ -126,6 +157,7 @@ const App = () => {
         />
         {modalCountry}
         {modalAbout}
+        {navigation}
         {copyright}
       </div>
     );
