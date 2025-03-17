@@ -103,6 +103,15 @@ const App = () => {
           countries={countries}
           offset={14}
           centerOpen={true}
+          useLogo={false}
+          useCompany={false}
+          onCountryClick={(country) => handleCountryClick(country)}
+          onLogoClick={() => handleAboutClick()}
+        />
+        <CountriesLine
+          countries={countries}
+          offset={21}
+          centerOpen={true}
           useLogo={true}
           useCompany={true}
           onCountryClick={(country) => handleCountryClick(country)}
@@ -110,7 +119,7 @@ const App = () => {
         />
         <CountriesLine
           countries={countries}
-          offset={21}
+          offset={28}
           centerOpen={false}
           useLogo={false}
           useCompany={false}
@@ -132,28 +141,28 @@ const App = () => {
       <div>
         <CountriesLineMobile
           countries={countries}
-          offset={20}
+          offset={27}
           useLogo={false}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleAboutClick()}
         />
         <CountriesLineMobile
           countries={countries}
-          offset={22}
+          offset={29}
           useLogo={false}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleAboutClick()}
         />
         <CountriesLineMobile
           countries={countries}
-          offset={24}
+          offset={31}
           useLogo={false}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleAboutClick()}
         />
         <CountriesLineMobile
           countries={countries}
-          offset={26}
+          offset={33}
           useLogo={true}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleAboutClick()}
