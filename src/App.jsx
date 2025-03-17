@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import CountriesLine from './components/CountriesLine';
 import CountriesLineMobile from './components/CountriesLineMobile';
+import AboutDialog from './components/AboutDialog';
+import CountryDialog from './components/CountryDialog';
 import countryService from './services/country';
 import useDeviceDetection from './hooks/useDeviceDetection';
-
 import './App.css';
 
 const App = () => {
@@ -28,57 +27,20 @@ const App = () => {
       });
   }, []);
 
+  const handleAboutClick = () => {
+    handleShowAbout();
+  };
+
   const handleCountryClick = (country) => {
     console.log(country);
     setSelectedCountry(country);
     handleShowCountry();
   };
 
-  const handleLogoClick = () => {
-    console.log('logo clicked');
-    handleShowAbout();
-  };
-
-  const handleCloseCountry = () => setShowCountry(false);
-  const handleShowCountry = () => setShowCountry(true);
   const handleCloseAbout = () => setShowAbout(false);
   const handleShowAbout = () => setShowAbout(true);
-
-  let modalCountry = (
-    <Modal show={showCountry} onHide={handleCloseCountry}>
-      <Modal.Header closeButton>
-        <Modal.Title>
-          {selectedCountry ? selectedCountry.name['common'] : ''}
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        The capital of {selectedCountry ? selectedCountry.name['common'] : ''}{' '}
-        is{' '}
-        {selectedCountry && selectedCountry.hasOwnProperty('capital')
-          ? selectedCountry.capital[0]
-          : '[no capital]'}
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="primary" onClick={handleCloseCountry}>
-          Close
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  );
-
-  let modalAbout = (
-    <Modal show={showAbout} onHide={handleCloseAbout}>
-      <Modal.Header closeButton>
-        <Modal.Title>About Prolegoma</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>[content here]</Modal.Body>
-      <Modal.Footer>
-        <Button variant="primary" onClick={handleCloseAbout}>
-          Close
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  );
+  const handleCloseCountry = () => setShowCountry(false);
+  const handleShowCountry = () => setShowCountry(true);
 
   let copyright = (
     <footer className="copyright-footer">
@@ -93,7 +55,7 @@ const App = () => {
       activeKey=""
       onSelect={(selectedKey) => {
         if (selectedKey === 'about') {
-          handleLogoClick();
+          handleAboutClick();
         } else {
           alert(`selected ${selectedKey}`);
         }
@@ -126,7 +88,7 @@ const App = () => {
           useLogo={false}
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
+          onLogoClick={() => handleAboutClick()}
         />
         <CountriesLine
           countries={countries}
@@ -135,7 +97,7 @@ const App = () => {
           useLogo={false}
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
+          onLogoClick={() => handleAboutClick()}
         />
         <CountriesLine
           countries={countries}
@@ -144,7 +106,7 @@ const App = () => {
           useLogo={true}
           useCompany={true}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
+          onLogoClick={() => handleAboutClick()}
         />
         <CountriesLine
           countries={countries}
@@ -153,10 +115,14 @@ const App = () => {
           useLogo={false}
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
+          onLogoClick={() => handleAboutClick()}
         />
-        {modalCountry}
-        {modalAbout}
+        <CountryDialog
+          country={selectedCountry}
+          showCountry={showCountry}
+          onClose={() => handleCloseCountry()}
+        />
+        <AboutDialog showAbout={showAbout} onClose={() => handleCloseAbout()} />
         {navigation}
         {copyright}
       </div>
@@ -169,31 +135,35 @@ const App = () => {
           offset={20}
           useLogo={false}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
+          onLogoClick={() => handleAboutClick()}
         />
         <CountriesLineMobile
           countries={countries}
           offset={22}
           useLogo={false}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
+          onLogoClick={() => handleAboutClick()}
         />
         <CountriesLineMobile
           countries={countries}
           offset={24}
           useLogo={false}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
+          onLogoClick={() => handleAboutClick()}
         />
         <CountriesLineMobile
           countries={countries}
           offset={26}
           useLogo={true}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
+          onLogoClick={() => handleAboutClick()}
         />
-        {modalCountry}
-        {modalAbout}
+        <CountryDialog
+          country={selectedCountry}
+          showCountry={showCountry}
+          onClose={() => handleCloseCountry()}
+        />
+        <AboutDialog showAbout={showAbout} onClose={() => handleCloseAbout()} />
         {copyright}
       </div>
     );
