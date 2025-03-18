@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Nav from 'react-bootstrap/Nav';
 import CountriesLine from './components/CountriesLine';
 import CountriesLineMobile from './components/CountriesLineMobile';
 import AboutDialog from './components/AboutDialog';
@@ -60,36 +59,6 @@ const App = () => {
     </footer>
   );
 
-  let navigation = (
-    <Nav
-      className="justify-content-center"
-      variant="underline"
-      activeKey=""
-      onSelect={(selectedKey) => {
-        if (selectedKey === 'about') {
-          handleAboutClick();
-        } else {
-          alert(`selected ${selectedKey}`);
-        }
-      }}
-    >
-      <Nav.Item>
-        <Nav.Link eventKey="home" href="/">
-          Home
-        </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="portfolio">Portfolio</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="contact">Contact</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="about">About</Nav.Link>
-      </Nav.Item>
-    </Nav>
-  );
-
   if (countries && device !== 'Mobile') {
     return (
       <div>
@@ -97,6 +66,7 @@ const App = () => {
           countries={countries}
           offset={0}
           centerOpen={false}
+          useNavigation={false}
           useLogo={false}
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
@@ -106,6 +76,7 @@ const App = () => {
           countries={countries}
           offset={7}
           centerOpen={true}
+          useNavigation={true}
           useLogo={false}
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
@@ -115,6 +86,7 @@ const App = () => {
           countries={countries}
           offset={14}
           centerOpen={true}
+          useNavigation={false}
           useLogo={false}
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
@@ -124,6 +96,7 @@ const App = () => {
           countries={countries}
           offset={21}
           centerOpen={true}
+          useNavigation={false}
           useLogo={true}
           useCompany={true}
           onCountryClick={(country) => handleCountryClick(country)}
@@ -133,6 +106,7 @@ const App = () => {
           countries={countries}
           offset={28}
           centerOpen={false}
+          useNavigation={false}
           useLogo={false}
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
@@ -144,7 +118,6 @@ const App = () => {
           onClose={() => handleCloseCountry()}
         />
         <AboutDialog showAbout={showAbout} onClose={() => handleCloseAbout()} />
-        {navigation}
         {copyright}
       </div>
     );

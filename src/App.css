@@ -43,7 +43,7 @@
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     font-size: .8em;
-    padding: 25px;
+    padding: 15px;
 }
 
 .prolegoma-heading {
@@ -60,6 +60,13 @@
     text-align: right;
     vertical-align: bottom;
     font-family: 'Courier New', Courier, monospace;
-    font-size: .75em;
+    font-size: .65em;
     font-weight: normal;
+}
+
+.prolegoma-navigation {
+    width: 42.75%;
+    vertical-align: top;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.15em;
 }

@@ -1,14 +1,18 @@
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import ClickableImageElement from './ClickableImageElement';
 
 const CountriesLine = ({
   countries,
   offset,
   centerOpen,
+  useNavigation,
   useLogo,
   useCompany,
   onCountryClick,
   onLogoClick,
 }) => {
+  const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
   const renderFlags = () => {
     const elements = [];
     for (let i = 0; i <= 6; i++) {
@@ -38,7 +42,41 @@ const CountriesLine = ({
           />
         );
       } else {
-        if (useCompany && i === 2) {
+        if (useNavigation) {
+          if (i === 2) {
+            elements.push(
+              <td
+                key={country.cca2}
+                className="prolegoma-navigation"
+                colspan="3"
+              >
+                <Nav variant="pills" onSelect={handleSelect}>
+                  <NavDropdown title="Portfolio" id="nav-dropdown">
+                    <NavDropdown.Item eventKey="1.1">
+                      First application
+                    </NavDropdown.Item>
+                    <NavDropdown.Item eventKey="1.2">
+                      Second application
+                    </NavDropdown.Item>
+                    <NavDropdown.Item eventKey="1.3">
+                      Third application
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item eventKey="1.4">
+                      Other applications
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                  <Nav.Item>
+                    <Nav.Link eventKey="2">About</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="3">Contact</Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </td>
+            );
+          }
+        } else if (useCompany && i === 2) {
           elements.push(
             <td key={country.cca2} className="prolegoma-heading">
               Prolegoma
@@ -47,7 +85,7 @@ const CountriesLine = ({
         } else if (useCompany && i === 4) {
           elements.push(
             <td key={country.cca2} className="prolegoma-directions">
-              Click flag for country details
+              Click flag for country info
               <br />
               Click logo for new flags
             </td>
