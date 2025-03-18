@@ -141,44 +141,75 @@ const App = () => {
   } else if (countries && device === 'Mobile') {
     return (
       <div>
-        <CountriesLineMobile
-          countries={countries}
-          offset={27}
-          useLogo={false}
-          onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
-        />
-        <CountriesLineMobile
-          countries={countries}
-          offset={29}
-          useLogo={false}
-          onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
-        />
-        <CountriesLineMobile
-          countries={countries}
-          offset={31}
-          useLogo={false}
-          onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
-        />
-        <CountriesLineMobile
-          countries={countries}
-          offset={33}
-          useLogo={true}
-          onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
-        />
-        <CountryDialog
-          country={selectedCountry}
-          showCountry={showCountry}
-          onClose={() => handleCloseCountry()}
-        />
-        <AboutOffcanvas
-          showAbout={showAbout}
-          onClose={() => handleCloseAbout()}
-        />
-        {copyright}
+        <div className="prolegoma-heading-mobile">Prolegoma</div>
+        <div>
+          <CountriesLineMobile
+            countries={countries}
+            offset={27}
+            useLogo={false}
+            usePortfolio={true}
+            useAbout={false}
+            useContact={false}
+            onCountryClick={(country) => handleCountryClick(country)}
+            onLogoClick={() => handleLogoClick()}
+            onPortfolioClick={() => handleShowAbout()}
+            onAboutClick={() => handleShowAbout()}
+            onContactClick={() => handleShowContact()}
+          />
+          <CountriesLineMobile
+            countries={countries}
+            offset={29}
+            useLogo={false}
+            usePortfolio={false}
+            useAbout={true}
+            useContact={false}
+            onCountryClick={(country) => handleCountryClick(country)}
+            onLogoClick={() => handleLogoClick()}
+            onPortfolioClick={() => handleShowAbout()}
+            onAboutClick={() => handleShowAbout()}
+            onContactClick={() => handleShowContact()}
+          />
+          <CountriesLineMobile
+            countries={countries}
+            offset={31}
+            useLogo={false}
+            usePortfolio={false}
+            useAbout={false}
+            useContact={true}
+            onCountryClick={(country) => handleCountryClick(country)}
+            onLogoClick={() => handleLogoClick()}
+            onPortfolioClick={() => handleShowAbout()}
+            onAboutClick={() => handleShowAbout()}
+            onContactClick={() => handleShowContact()}
+          />
+          <CountriesLineMobile
+            countries={countries}
+            offset={33}
+            useLogo={true}
+            usePortfolio={false}
+            useAbout={false}
+            useContact={false}
+            onCountryClick={(country) => handleCountryClick(country)}
+            onLogoClick={() => handleLogoClick()}
+            onPortfolioClick={() => handleShowAbout()}
+            onAboutClick={() => handleShowAbout()}
+            onContactClick={() => handleShowContact()}
+          />
+          <CountryDialog
+            country={selectedCountry}
+            showCountry={showCountry}
+            onClose={() => handleCloseCountry()}
+          />
+          <AboutOffcanvas
+            showAbout={showAbout}
+            onClose={() => handleCloseAbout()}
+          />
+          <ContactOffcanvas
+            showContact={showContact}
+            onClose={() => handleCloseContact()}
+          />
+          {copyright}
+        </div>
       </div>
     );
   } else return null;
