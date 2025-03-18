@@ -11,8 +11,16 @@ const CountriesLine = ({
   useCompany,
   onCountryClick,
   onLogoClick,
+  onAboutClick,
 }) => {
-  const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
+  const handleSelect = (eventKey) => {
+    if (eventKey === '2') {
+      onAboutClick();
+    } else {
+      alert(`selected ${eventKey}`);
+    }
+  };
+
   const renderFlags = () => {
     const elements = [];
     for (let i = 0; i <= 6; i++) {
@@ -50,7 +58,7 @@ const CountriesLine = ({
                 className="prolegoma-navigation"
                 colspan="3"
               >
-                <Nav variant="pills" onSelect={handleSelect}>
+                <Nav onSelect={handleSelect}>
                   <NavDropdown title="Portfolio" id="nav-dropdown">
                     <NavDropdown.Item eventKey="1.1">
                       First application

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import CountriesLine from './components/CountriesLine';
 import CountriesLineMobile from './components/CountriesLineMobile';
-import AboutDialog from './components/AboutDialog';
+import AboutOffcanvas from './components/AboutOffcanvas';
 import CountryDialog from './components/CountryDialog';
 import countryService from './services/country';
 import useDeviceDetection from './hooks/useDeviceDetection';
@@ -38,10 +38,6 @@ const App = () => {
       });
   };
 
-  const handleAboutClick = () => {
-    handleShowAbout();
-  };
-
   const handleCountryClick = (country) => {
     console.log(country);
     setSelectedCountry(country);
@@ -71,6 +67,7 @@ const App = () => {
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
+          onAboutClick={() => handleShowAbout()}
         />
         <CountriesLine
           countries={countries}
@@ -81,6 +78,7 @@ const App = () => {
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
+          onAboutClick={() => handleShowAbout()}
         />
         <CountriesLine
           countries={countries}
@@ -91,6 +89,7 @@ const App = () => {
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
+          onAboutClick={() => handleShowAbout()}
         />
         <CountriesLine
           countries={countries}
@@ -101,6 +100,7 @@ const App = () => {
           useCompany={true}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
+          onAboutClick={() => handleShowAbout()}
         />
         <CountriesLine
           countries={countries}
@@ -111,13 +111,17 @@ const App = () => {
           useCompany={false}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
+          onAboutClick={() => handleShowAbout()}
         />
         <CountryDialog
           country={selectedCountry}
           showCountry={showCountry}
           onClose={() => handleCloseCountry()}
         />
-        <AboutDialog showAbout={showAbout} onClose={() => handleCloseAbout()} />
+        <AboutOffcanvas
+          showAbout={showAbout}
+          onClose={() => handleCloseAbout()}
+        />
         {copyright}
       </div>
     );
@@ -129,35 +133,38 @@ const App = () => {
           offset={27}
           useLogo={false}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleAboutClick()}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountriesLineMobile
           countries={countries}
           offset={29}
           useLogo={false}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleAboutClick()}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountriesLineMobile
           countries={countries}
           offset={31}
           useLogo={false}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleAboutClick()}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountriesLineMobile
           countries={countries}
           offset={33}
           useLogo={true}
           onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleAboutClick()}
+          onLogoClick={() => handleLogoClick()}
         />
         <CountryDialog
           country={selectedCountry}
           showCountry={showCountry}
           onClose={() => handleCloseCountry()}
         />
-        <AboutDialog showAbout={showAbout} onClose={() => handleCloseAbout()} />
+        <AboutOffcanvas
+          showAbout={showAbout}
+          onClose={() => handleCloseAbout()}
+        />
         {copyright}
       </div>
     );
