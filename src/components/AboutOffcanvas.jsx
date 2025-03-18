@@ -5,6 +5,8 @@ const AboutOffcanvas = ({ showAbout, onClose }) => {
     <Offcanvas
       show={showAbout}
       onHide={onClose}
+      placement="start"
+      backdrop="static"
       className="prolegoma-offcanvas"
     >
       <Offcanvas.Header closeButton>

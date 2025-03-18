@@ -12,12 +12,13 @@ const CountriesLine = ({
   onCountryClick,
   onLogoClick,
   onAboutClick,
+  onContactClick,
 }) => {
   const handleSelect = (eventKey) => {
     if (eventKey === '2') {
       onAboutClick();
-    } else {
-      alert(`selected ${eventKey}`);
+    } else if (eventKey === '3') {
+      onContactClick();
     }
   };
 

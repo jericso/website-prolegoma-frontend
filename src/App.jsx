@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import CountriesLine from './components/CountriesLine';
 import CountriesLineMobile from './components/CountriesLineMobile';
 import AboutOffcanvas from './components/AboutOffcanvas';
+import ContactOffcanvas from './components/ContactOffcanvas';
 import CountryDialog from './components/CountryDialog';
 import countryService from './services/country';
 import useDeviceDetection from './hooks/useDeviceDetection';
@@ -13,6 +14,7 @@ const App = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [showCountry, setShowCountry] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  const [showContact, setShowContact] = useState(false);
 
   useEffect(() => {
     countryService
@@ -46,6 +48,8 @@ const App = () => {
 
   const handleCloseAbout = () => setShowAbout(false);
   const handleShowAbout = () => setShowAbout(true);
+  const handleCloseContact = () => setShowContact(false);
+  const handleShowContact = () => setShowContact(true);
   const handleCloseCountry = () => setShowCountry(false);
   const handleShowCountry = () => setShowCountry(true);
 
@@ -68,6 +72,7 @@ const App = () => {
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
           onAboutClick={() => handleShowAbout()}
+          onContactClick={() => handleShowContact()}
         />
         <CountriesLine
           countries={countries}
@@ -79,6 +84,7 @@ const App = () => {
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
           onAboutClick={() => handleShowAbout()}
+          onContactClick={() => handleShowContact()}
         />
         <CountriesLine
           countries={countries}
@@ -90,6 +96,7 @@ const App = () => {
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
           onAboutClick={() => handleShowAbout()}
+          onContactClick={() => handleShowContact()}
         />
         <CountriesLine
           countries={countries}
@@ -101,6 +108,7 @@ const App = () => {
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
           onAboutClick={() => handleShowAbout()}
+          onContactClick={() => handleShowContact()}
         />
         <CountriesLine
           countries={countries}
@@ -112,6 +120,7 @@ const App = () => {
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
           onAboutClick={() => handleShowAbout()}
+          onContactClick={() => handleShowContact()}
         />
         <CountryDialog
           country={selectedCountry}
@@ -121,6 +130,10 @@ const App = () => {
         <AboutOffcanvas
           showAbout={showAbout}
           onClose={() => handleCloseAbout()}
+        />
+        <ContactOffcanvas
+          showContact={showContact}
+          onClose={() => handleCloseContact()}
         />
         {copyright}
       </div>
