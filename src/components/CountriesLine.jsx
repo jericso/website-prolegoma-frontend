@@ -15,7 +15,8 @@ const CountriesLine = ({
   onContactClick,
 }) => {
   const handleSelect = (eventKey) => {
-    if (eventKey === '2') {
+    if (eventKey === '1.1') window.open('https://dev.2200aldrich.com', '_1-1');
+    else if (eventKey === '2') {
       onAboutClick();
     } else if (eventKey === '3') {
       onContactClick();
@@ -37,7 +38,7 @@ const CountriesLine = ({
             imageClass={'flag'}
             hoverClass={'flag-grow'}
             onClick={() => onCountryClick(country)}
-          />
+          />,
         );
       } else if (useLogo && i === logoIndex) {
         elements.push(
@@ -48,7 +49,7 @@ const CountriesLine = ({
             imageClass={'flag-logo'}
             hoverClass={'flag-grow'}
             onClick={() => onLogoClick()}
-          />
+          />,
         );
       } else {
         if (useNavigation) {
@@ -60,19 +61,20 @@ const CountriesLine = ({
                 colspan="3"
               >
                 <Nav onSelect={handleSelect}>
-                  <NavDropdown title="Portfolio" id="nav-dropdown">
+                  <NavDropdown title="Sites" id="nav-dropdown">
                     <NavDropdown.Item eventKey="1.1">
-                      First application
+                      2200 Aldrich Ave S
                     </NavDropdown.Item>
                     <NavDropdown.Item eventKey="1.2">
-                      Second application
+                      Cafeteria Club
                     </NavDropdown.Item>
                     <NavDropdown.Item eventKey="1.3">
-                      Third application
+                      The Trade Arcade
                     </NavDropdown.Item>
-                    <NavDropdown.Divider />
+                  </NavDropdown>
+                  <NavDropdown title="Prototypes" id="nav-dropdown">
                     <NavDropdown.Item eventKey="1.4">
-                      Other applications
+                      Production Dashboard
                     </NavDropdown.Item>
                   </NavDropdown>
                   <Nav.Item>
@@ -82,14 +84,14 @@ const CountriesLine = ({
                     <Nav.Link eventKey="3">Contact</Nav.Link>
                   </Nav.Item>
                 </Nav>
-              </td>
+              </td>,
             );
           }
         } else if (useCompany && i === 2) {
           elements.push(
             <td key={country.cca2} className="prolegoma-heading">
               Prolegoma
-            </td>
+            </td>,
           );
         } else if (useCompany && i === 4) {
           elements.push(
@@ -97,7 +99,7 @@ const CountriesLine = ({
               Click flag for country info
               <br />
               Click logo for new flags
-            </td>
+            </td>,
           );
         } else {
           elements.push(<td key={country.cca2} className="flag-cell"></td>);
