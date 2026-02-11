@@ -96,9 +96,9 @@ const CountriesLine = ({
         } else if (useCompany && i === 4) {
           elements.push(
             <td key={country.cca2} className="prolegoma-directions">
-              Click flag for country info
+              Click a flag for data on the country
               <br />
-              Click logo for new flags
+              Click the logo for new flags
             </td>,
           );
         } else {
