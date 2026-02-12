@@ -16,7 +16,11 @@ const CountriesLine = ({
 }) => {
   const handleSelect = (eventKey) => {
     if (eventKey === '1.1') window.open('https://dev.2200aldrich.com', '_1-1');
-    else if (eventKey === '2') {
+    else if (eventKey === '1.2') {
+      window.open('https://tradearcade.org', '_1-2');
+    } else if (eventKey === '1.3') {
+      window.open('https://cafeteriaclub.org/', '_1-3');
+    } else if (eventKey === '2') {
       onAboutClick();
     } else if (eventKey === '3') {
       onContactClick();
@@ -67,13 +71,13 @@ const CountriesLine = ({
                 <Nav onSelect={handleSelect}>
                   <NavDropdown title="Sites" id="nav-dropdown">
                     <NavDropdown.Item eventKey="1.1">
-                      2200 Aldrich Ave S
+                      2200 Aldrich Avenue South
                     </NavDropdown.Item>
                     <NavDropdown.Item eventKey="1.2">
-                      Cafeteria Club
+                      The Trade Arcade
                     </NavDropdown.Item>
                     <NavDropdown.Item eventKey="1.3">
-                      The Trade Arcade
+                      Cafeteria Club
                     </NavDropdown.Item>
                   </NavDropdown>
                   <NavDropdown title="Prototypes" id="nav-dropdown">
