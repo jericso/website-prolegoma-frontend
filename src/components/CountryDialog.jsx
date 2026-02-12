@@ -1,5 +1,8 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const CountryDialog = ({ country, showCountry, onClose }) => {
   return (
@@ -8,10 +11,47 @@ const CountryDialog = ({ country, showCountry, onClose }) => {
         <Modal.Title>{country ? country.name['common'] : ''}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        The capital of {country ? country.name['common'] : ''} is{' '}
-        {country && country.hasOwnProperty('capital')
-          ? country.capital[0]
-          : '[no capital]'}
+        <Container>
+          <Row>
+            <Col>Region</Col>
+            <Col>
+              {country && country.hasOwnProperty('region')
+                ? country.region
+                : '[no region]'}
+            </Col>
+          </Row>
+          <Row>
+            <Col>Capital</Col>
+            <Col>
+              {country && country.hasOwnProperty('capital')
+                ? country.capital[0]
+                : '[no capital]'}
+            </Col>
+          </Row>
+          <Row>
+            <Col>Population</Col>
+            <Col>
+              {country && country.hasOwnProperty('population')
+                ? country.population.toLocaleString()
+                : '[no population]'}
+            </Col>
+          </Row>
+          <Row>
+            <Col>Google map</Col>
+            <Col>
+              <a
+                href={
+                  country && country.maps['googleMaps']
+                    ? country.maps['googleMaps']
+                    : '[no map]'
+                }
+                target="_map"
+              >
+                Open Map
+              </a>
+            </Col>
+          </Row>
+        </Container>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="primary" onClick={onClose}>

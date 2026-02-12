@@ -62,7 +62,7 @@ const CountriesLine = ({
               <td
                 key={country.cca2}
                 className="prolegoma-navigation"
-                colspan="3"
+                colSpan="3"
               >
                 <Nav onSelect={handleSelect}>
                   <NavDropdown title="Sites" id="nav-dropdown">
