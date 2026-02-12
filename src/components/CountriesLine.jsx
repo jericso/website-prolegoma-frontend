@@ -38,6 +38,8 @@ const CountriesLine = ({
             imageClass={'flag'}
             hoverClass={'flag-grow'}
             onClick={() => onCountryClick(country)}
+            altValue={country.flags['alt']}
+            titleValue={country.name['common']}
           />,
         );
       } else if (useLogo && i === logoIndex) {
@@ -49,6 +51,8 @@ const CountriesLine = ({
             imageClass={'flag-logo'}
             hoverClass={'flag-grow'}
             onClick={() => onLogoClick()}
+            altValue={'Prolegoma'}
+            titleValue={'Refresh flags'}
           />,
         );
       } else {
