@@ -12,7 +12,10 @@ const AboutDialog = ({ showAbout, onClose }) => {
           We&apos;re a small software company focused on information management
           who listen to client needs. We deliver practical, quality solutions.
         </p>
-        <p>Integrations to complete systems.</p>
+        <p>
+          From integrations to complete systems. We&apos;ll help be your marker
+          for for a deep data dive.
+        </p>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="dark" onClick={onClose}>
