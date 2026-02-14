@@ -16,6 +16,8 @@ const App = () => {
   const [showAbout, setShowAbout] = useState(false);
   const [showContact, setShowContact] = useState(false);
 
+  document.body.style.backgroundColor = 'rgba(229, 237, 240, 0.94)';
+
   useEffect(() => {
     countryService
       .getAll()

@@ -13,7 +13,7 @@ const AboutDialog = ({ showAbout, onClose }) => {
         </p>
         <p>We deliver practical, quality solutions to meet client needs.</p>
         <p>
-          From integrations to complete systems, we&apos;ll help be your marker
+          From integrations to complete systems, we&apos;ll be your partner
           for a deep data dive. :)
         </p>
       </Modal.Body>
