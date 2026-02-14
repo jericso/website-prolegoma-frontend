@@ -5,7 +5,7 @@ const AboutDialog = ({ showAbout, onClose }) => {
   return (
     <Modal show={showAbout} onHide={onClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Prolegoma</Modal.Title>
+        <Modal.Title className="fw-bold">Prolegoma</Modal.Title>
       </Modal.Header>
       <Modal.Body className="prolegoma-about-body reading-text">
         <p>
