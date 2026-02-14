@@ -94,6 +94,15 @@
   font-size: 1em;
 }
 
+.prolegoma-about-body {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+    url('./logo.svg');
+  background-size: 65% auto;
+  background-repeat: no-repeat;
+  background-position: right 20% bottom 90%;
+}
+
 .reading-text {
   font-family: 'Times New Roman', Times, serif;
 }

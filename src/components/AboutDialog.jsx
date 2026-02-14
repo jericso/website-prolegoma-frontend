@@ -7,14 +7,14 @@ const AboutDialog = ({ showAbout, onClose }) => {
       <Modal.Header closeButton>
         <Modal.Title>Prolegoma</Modal.Title>
       </Modal.Header>
-      <Modal.Body className="reading-text">
+      <Modal.Body className="prolegoma-about-body reading-text">
         <p>
-          We&apos;re a small software company focused on information management
-          who listen to client needs. We deliver practical, quality solutions.
+          We&apos;re a small software company focused on information management.
         </p>
+        <p>We deliver practical, quality solutions to meet client needs.</p>
         <p>
-          From integrations to complete systems. We&apos;ll help be your marker
-          for for a deep data dive.
+          From integrations to complete systems, we&apos;ll help be your marker
+          for a deep data dive. :)
         </p>
       </Modal.Body>
       <Modal.Footer>
