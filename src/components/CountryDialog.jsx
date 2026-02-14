@@ -54,7 +54,7 @@ const CountryDialog = ({ country, showCountry, onClose }) => {
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={onClose}>
+        <Button variant="dark" onClick={onClose}>
           Close
         </Button>
       </Modal.Footer>
