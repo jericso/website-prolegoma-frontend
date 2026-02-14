@@ -12,7 +12,7 @@ const ContactOffcanvas = ({ showContact, onClose }) => {
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Contact Us</Offcanvas.Title>
       </Offcanvas.Header>
-      <Offcanvas.Body>Email and contact form</Offcanvas.Body>
+      <Offcanvas.Body className="reading-text">[contact form]</Offcanvas.Body>
     </Offcanvas>
   );
 };

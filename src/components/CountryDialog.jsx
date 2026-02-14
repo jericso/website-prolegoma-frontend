@@ -10,7 +10,7 @@ const CountryDialog = ({ country, showCountry, onClose }) => {
       <Modal.Header closeButton>
         <Modal.Title>{country ? country.name['common'] : ''}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className="reading-text">
         <Container>
           <Row>
             <Col>Region</Col>

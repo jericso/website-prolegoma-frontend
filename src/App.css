@@ -76,10 +76,11 @@
 }
 
 .prolegoma-directions {
+  font-family: 'Times New Roman', Times, serif;
   width: 14.25%;
   text-align: right;
   vertical-align: bottom;
-  font-size: 0.65em;
+  font-size: 1em;
   font-weight: normal;
 }
 

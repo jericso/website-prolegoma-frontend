@@ -106,7 +106,7 @@ const CountriesLine = ({
             <td key={country.cca2} className="prolegoma-directions">
               Click a flag for data on the country
               <br />
-              Click the logo for new flags
+              Click our logo for new flags
             </td>,
           );
         } else {
