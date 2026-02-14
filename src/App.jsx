@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import CountriesLine from './components/CountriesLine';
 import CountriesLineMobile from './components/CountriesLineMobile';
-import AboutOffcanvas from './components/AboutOffcanvas';
+import AboutDialog from './components/AboutDialog';
 import ContactOffcanvas from './components/ContactOffcanvas';
 import CountryDialog from './components/CountryDialog';
 import countryService from './services/country';
@@ -127,10 +127,7 @@ const App = () => {
           showCountry={showCountry}
           onClose={() => handleCloseCountry()}
         />
-        <AboutOffcanvas
-          showAbout={showAbout}
-          onClose={() => handleCloseAbout()}
-        />
+        <AboutDialog showAbout={showAbout} onClose={() => handleCloseAbout()} />
         <ContactOffcanvas
           showContact={showContact}
           onClose={() => handleCloseContact()}
@@ -200,7 +197,7 @@ const App = () => {
             showCountry={showCountry}
             onClose={() => handleCloseCountry()}
           />
-          <AboutOffcanvas
+          <AboutDialog
             showAbout={showAbout}
             onClose={() => handleCloseAbout()}
           />

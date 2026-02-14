@@ -5,11 +5,17 @@ const AboutDialog = ({ showAbout, onClose }) => {
   return (
     <Modal show={showAbout} onHide={onClose}>
       <Modal.Header closeButton>
-        <Modal.Title>About Prolegoma</Modal.Title>
+        <Modal.Title>Prolegoma</Modal.Title>
       </Modal.Header>
-      <Modal.Body>[content here]</Modal.Body>
+      <Modal.Body className="reading-text">
+        <p>
+          We&apos;re a small software company focused on information management
+          who listen to client needs. We deliver practical, quality solutions.
+        </p>
+        <p>Integrations to complete systems.</p>
+      </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={onClose}>
+        <Button variant="dark" onClick={onClose}>
           Close
         </Button>
       </Modal.Footer>
