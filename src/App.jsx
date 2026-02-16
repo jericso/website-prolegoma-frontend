@@ -16,6 +16,8 @@ const App = () => {
   const [showAbout, setShowAbout] = useState(false);
   const [showContact, setShowContact] = useState(false);
 
+  document.body.style.backgroundPosition = '0px 0px';
+  document.body.style.minHeight = '100vh';
   document.body.style.backgroundImage = 'linear-gradient(white, lightblue)';
 
   useEffect(() => {
