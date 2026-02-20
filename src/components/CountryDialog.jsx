@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Map from './Map';
 
 const CountryDialog = ({ country, showCountry, onClose }) => {
   return (
@@ -21,14 +22,6 @@ const CountryDialog = ({ country, showCountry, onClose }) => {
             </Col>
           </Row>
           <Row>
-            <Col>Capital</Col>
-            <Col>
-              {country && country.hasOwnProperty('capital')
-                ? country.capital[0]
-                : '[no capital]'}
-            </Col>
-          </Row>
-          <Row>
             <Col>Population</Col>
             <Col>
               {country && country.hasOwnProperty('population')
@@ -37,18 +30,27 @@ const CountryDialog = ({ country, showCountry, onClose }) => {
             </Col>
           </Row>
           <Row>
-            <Col>Google map</Col>
+            <Col>Capital</Col>
             <Col>
-              <a
-                href={
-                  country && country.maps['googleMaps']
-                    ? country.maps['googleMaps']
-                    : '[no map]'
+              {country && country.hasOwnProperty('capital')
+                ? country.capital[0]
+                : '[no capital]'}
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Map
+                latitude={
+                  country && country.capitalInfo.latlng !== undefined
+                    ? country.capitalInfo.latlng[0]
+                    : 0
                 }
-                target="_map"
-              >
-                Open Map
-              </a>
+                longitude={
+                  country && country.capitalInfo.latlng !== undefined
+                    ? country.capitalInfo.latlng[1]
+                    : 0
+                }
+              />
             </Col>
           </Row>
         </Container>
