@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import CountriesLine from './components/CountriesLine';
 import CountriesLineMobile from './components/CountriesLineMobile';
 import AboutDialog from './components/AboutDialog';
 import ContactOffcanvas from './components/ContactOffcanvas';
 import CountryDialog from './components/CountryDialog';
 import countryService from './services/country';
 import useDeviceDetection from './hooks/useDeviceDetection';
+import CountriesGrid from './components/CountriesGrid';
 import './App.css';
 
 const App = () => {
@@ -66,63 +66,13 @@ const App = () => {
   if (countries && device !== 'Mobile') {
     return (
       <div>
-        <CountriesLine
+        <CountriesGrid
           countries={countries}
-          offset={0}
-          centerOpen={false}
-          useNavigation={false}
-          useLogo={false}
-          useCompany={false}
+          useAbout={false}
+          useContact={false}
           onCountryClick={(country) => handleCountryClick(country)}
           onLogoClick={() => handleLogoClick()}
-          onAboutClick={() => handleShowAbout()}
-          onContactClick={() => handleShowContact()}
-        />
-        <CountriesLine
-          countries={countries}
-          offset={7}
-          centerOpen={true}
-          useNavigation={true}
-          useLogo={false}
-          useCompany={false}
-          onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
-          onAboutClick={() => handleShowAbout()}
-          onContactClick={() => handleShowContact()}
-        />
-        <CountriesLine
-          countries={countries}
-          offset={14}
-          centerOpen={true}
-          useNavigation={false}
-          useLogo={false}
-          useCompany={false}
-          onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
-          onAboutClick={() => handleShowAbout()}
-          onContactClick={() => handleShowContact()}
-        />
-        <CountriesLine
-          countries={countries}
-          offset={21}
-          centerOpen={true}
-          useNavigation={false}
-          useLogo={true}
-          useCompany={true}
-          onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
-          onAboutClick={() => handleShowAbout()}
-          onContactClick={() => handleShowContact()}
-        />
-        <CountriesLine
-          countries={countries}
-          offset={28}
-          centerOpen={false}
-          useNavigation={false}
-          useLogo={false}
-          useCompany={false}
-          onCountryClick={(country) => handleCountryClick(country)}
-          onLogoClick={() => handleLogoClick()}
+          onPortfolioClick={() => handleShowAbout()}
           onAboutClick={() => handleShowAbout()}
           onContactClick={() => handleShowContact()}
         />
