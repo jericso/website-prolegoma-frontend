@@ -7,19 +7,15 @@ const ClickableImageElement = ({
   altValue,
   titleValue,
 }) => (
-  <>
-    <td className={elementClass}>
-      <div className={hoverClass}>
-        <img
-          className={imageClass}
-          src={srcValue}
-          alt={altValue}
-          title={titleValue}
-          onClick={onClick}
-        />
-      </div>
-    </td>
-  </>
+  <div className={hoverClass}>
+    <img
+      className={imageClass}
+      src={srcValue}
+      alt={altValue}
+      title={titleValue}
+      onClick={onClick}
+    />
+  </div>
 );
 
 export default ClickableImageElement;

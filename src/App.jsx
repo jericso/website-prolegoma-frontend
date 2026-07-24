@@ -57,15 +57,11 @@ const App = () => {
   const handleCloseCountry = () => setShowCountry(false);
   const handleShowCountry = () => setShowCountry(true);
 
-  let copyright = (
-    <footer className="copyright-footer">
-      &copy; Copyright {new Date().getFullYear()} Prolegoma.com
-    </footer>
-  );
+  
 
   if (countries && device !== 'Mobile') {
     return (
-      <div>
+      <div className="flag-grid">
         <CountriesGrid
           countries={countries}
           useAbout={false}
@@ -86,7 +82,6 @@ const App = () => {
           showContact={showContact}
           onClose={() => handleCloseContact()}
         />
-        {copyright}
       </div>
     );
   } else if (countries && device === 'Mobile') {

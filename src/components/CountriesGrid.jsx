@@ -34,7 +34,7 @@ const CountriesGrid = ({
   for (let i = 0; i <= 6; i++) {
     let country = countries[i];
     lineOne.push(
-      <Col>
+      <Col className="flag-cell">
         <ClickableImageElement
           key={country.cca2}
           srcValue={country.flags['svg']}
@@ -51,62 +51,8 @@ const CountriesGrid = ({
 
   for (let i = 7; i <= 13; i++) {
     let country = countries[i];
-    lineTwo.push(
-      <Col>
-        <ClickableImageElement
-          key={country.cca2}
-          srcValue={country.flags['svg']}
-          elementClass={'flag-cell'}
-          imageClass={'flag'}
-          hoverClass={'flag-grow'}
-          onClick={() => onCountryClick(country)}
-          altValue={country.flags['alt']}
-          titleValue={country.name['common']}
-        />
-      </Col>,
-    );
-  }
-
-  for (let i = 14; i <= 20; i++) {
-    let country = countries[i];
-    lineThree.push(
-      <Col>
-        <ClickableImageElement
-          key={country.cca2}
-          srcValue={country.flags['svg']}
-          elementClass={'flag-cell'}
-          imageClass={'flag'}
-          hoverClass={'flag-grow'}
-          onClick={() => onCountryClick(country)}
-          altValue={country.flags['alt']}
-          titleValue={country.name['common']}
-        />
-      </Col>,
-    );
-  }
-
-  for (let i = 21; i <= 27; i++) {
-    let country = countries[i];
-    lineFour.push(
-      <Col>
-        <ClickableImageElement
-          key={country.cca2}
-          srcValue={country.flags['svg']}
-          elementClass={'flag-cell'}
-          imageClass={'flag'}
-          hoverClass={'flag-grow'}
-          onClick={() => onCountryClick(country)}
-          altValue={country.flags['alt']}
-          titleValue={country.name['common']}
-        />
-      </Col>,
-    );
-  }
-
-  for (let i = 28; i <= 34; i++) {
-    let country = countries[i];
     lineFive.push(
-      <Col>
+      <Col className="flag-cell">
         <ClickableImageElement
           key={country.cca2}
           srcValue={country.flags['svg']}
@@ -120,6 +66,85 @@ const CountriesGrid = ({
       </Col>,
     );
   }
+
+  let offset = 0;
+  let flagIndex = 14;
+  for (let i = 1; i <= 2; i++) {
+    let country = countries[flagIndex];
+    lineTwo.push(
+      <Col className="flag-cell" md={{ span: 1, offset: offset }}>
+        <ClickableImageElement
+          key={country.cca2}
+          srcValue={country.flags['svg']}
+          elementClass={'flag-cell'}
+          imageClass={'flag'}
+          hoverClass={'flag-grow'}
+          onClick={() => onCountryClick(country)}
+          altValue={country.flags['alt']}
+          titleValue={country.name['common']}
+        />
+      </Col>,
+    );
+
+    offset += 6;
+    flagIndex++;
+  }
+
+  offset = 0;
+  for (let i = 1; i <= 2; i++) {
+    let country = countries[flagIndex];
+    lineThree.push(
+      <Col className="flag-cell" md={{ span: 1, offset: offset }}>
+        <ClickableImageElement
+          key={country.cca2}
+          srcValue={country.flags['svg']}
+          elementClass={'flag-cell'}
+          imageClass={'flag'}
+          hoverClass={'flag-grow'}
+          onClick={() => onCountryClick(country)}
+          altValue={country.flags['alt']}
+          titleValue={country.name['common']}
+        />
+      </Col>,
+    );
+
+    offset += 6;
+    flagIndex++;
+  }
+
+  let country = countries[flagIndex];
+  lineFour.push(
+    <Col>
+      <ClickableImageElement
+        key={country.cca2}
+        srcValue={country.flags['svg']}
+        elementClass={'flag-cell'}
+        imageClass={'flag'}
+        hoverClass={'flag-grow'}
+        onClick={() => onCountryClick(country)}
+        altValue={country.flags['alt']}
+        titleValue={country.name['common']}
+      />
+    </Col>,
+  );
+  flagIndex++;
+
+  country = countries[flagIndex];
+  lineFour.push(
+    <Col className="col-md-7">
+      <ClickableImageElement
+        key={country.cca2}
+        srcValue={country.flags['svg']}
+        elementClass={'flag-cell'}
+        imageClass={'flag'}
+        hoverClass={'flag-grow'}
+        onClick={() => onCountryClick(country)}
+        altValue={country.flags['alt']}
+        titleValue={country.name['common']}
+      />
+    </Col>,
+  );
+  flagIndex++;
 
   return (
     <div className="main-content">
@@ -129,6 +154,11 @@ const CountriesGrid = ({
         <Row>{lineThree}</Row>
         <Row>{lineFour}</Row>
         <Row>{lineFive}</Row>
+        <Row className="copyright-row">
+          <Col className="copyright-footer">
+            &copy; Copyright {new Date().getFullYear()} Prolegoma.com
+          </Col>
+        </Row>
       </Container>
     </div>
   );
