@@ -20,6 +20,8 @@ const CountriesLine = ({
       window.open('https://tradearcade.org', '_1-2');
     } else if (eventKey === '1.3') {
       window.open('https://cafeteriaclub.org/', '_1-3');
+    } else if (eventKey === '1.4') {
+      window.open('https://chat.prolegoma.com', '_1-4');
     } else if (eventKey === '2') {
       onAboutClick();
     } else if (eventKey === '3') {
@@ -82,6 +84,9 @@ const CountriesLine = ({
                   </NavDropdown>
                   <NavDropdown title="Prototypes" id="nav-dropdown">
                     <NavDropdown.Item eventKey="1.4">
+                      Prolegoma Chat
+                    </NavDropdown.Item>
+                    <NavDropdown.Item eventKey="1.5">
                       Production Dashboard
                     </NavDropdown.Item>
                   </NavDropdown>
