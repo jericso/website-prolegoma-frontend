@@ -8,13 +8,11 @@ const AboutDialog = ({ showAbout, onClose }) => {
         <Modal.Title className="fw-bold">Prolegoma</Modal.Title>
       </Modal.Header>
       <Modal.Body className="prolegoma-about-body reading-text">
+        <p>I&apos;m a full-stack developer focused on information management.</p>
+        <p>I deliver practical, quality solutions to meet client needs.</p>
         <p>
-          We&apos;re a small software company focused on information management.
-        </p>
-        <p>We deliver practical, quality solutions to meet client needs.</p>
-        <p>
-          From integrations to complete systems, we&apos;ll be your partner
-          for a deep data dive. :)
+          From integrations to complete systems, I&apos;d be glad to help with
+          your data.
         </p>
       </Modal.Body>
       <Modal.Footer>
