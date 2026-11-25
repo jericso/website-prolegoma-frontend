@@ -1,34 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useSyncExternalStore } from 'react';
 
-const useDeviceDetection = () => {
-  const [device, setDevice] = useState('');
+const MOBILE_QUERY = '(max-width: 767.98px)';
 
-  useEffect(() => {
-    const handleDeviceDetection = () => {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const isMobile =
-        /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
-      const isTablet =
-        /(ipad|tablet|playbook|silk)|(android(?!.*mobile))/g.test(userAgent);
-
-      if (isMobile) {
-        setDevice('Mobile');
-      } else if (isTablet) {
-        setDevice('Tablet');
-      } else {
-        setDevice('Desktop');
-      }
-    };
-
-    handleDeviceDetection();
-    window.addEventListener('resize', handleDeviceDetection);
-
-    return () => {
-      window.removeEventListener('resize', handleDeviceDetection);
-    };
-  }, []);
-
-  return device;
+const subscribe = (callback) => {
+  const mediaQuery = window.matchMedia(MOBILE_QUERY);
+  mediaQuery.addEventListener('change', callback);
+  return () => mediaQuery.removeEventListener('change', callback);
 };
+
+const getSnapshot = () => window.matchMedia(MOBILE_QUERY).matches;
+
+const useDeviceDetection = () =>
+  useSyncExternalStore(subscribe, getSnapshot) ? 'Mobile' : 'Desktop';
 
 export default useDeviceDetection;

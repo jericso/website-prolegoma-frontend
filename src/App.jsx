@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Button from 'react-bootstrap/Button';
 import CountriesLine from './components/CountriesLine';
-import CountriesLineMobile from './components/CountriesLineMobile';
+import MobileLayout from './components/MobileLayout';
 import AboutDialog from './components/AboutDialog';
 import ContactOffcanvas from './components/ContactOffcanvas';
 import CountryDialog from './components/CountryDialog';
@@ -136,75 +136,24 @@ const App = () => {
   } else if (countries && device === 'Mobile') {
     return (
       <div>
-        <div className="prolegoma-heading-mobile">Prolegoma</div>
-        <div>
-          <CountriesLineMobile
-            countries={countries}
-            offset={27}
-            useLogo={false}
-            usePortfolio={true}
-            useAbout={false}
-            useContact={false}
-            onCountryClick={(country) => handleCountryClick(country)}
-            onLogoClick={() => handleLogoClick()}
-            onPortfolioClick={() => handleShowAbout()}
-            onAboutClick={() => handleShowAbout()}
-            onContactClick={() => handleShowContact()}
-          />
-          <CountriesLineMobile
-            countries={countries}
-            offset={29}
-            useLogo={false}
-            usePortfolio={false}
-            useAbout={true}
-            useContact={false}
-            onCountryClick={(country) => handleCountryClick(country)}
-            onLogoClick={() => handleLogoClick()}
-            onPortfolioClick={() => handleShowAbout()}
-            onAboutClick={() => handleShowAbout()}
-            onContactClick={() => handleShowContact()}
-          />
-          <CountriesLineMobile
-            countries={countries}
-            offset={31}
-            useLogo={false}
-            usePortfolio={false}
-            useAbout={false}
-            useContact={true}
-            onCountryClick={(country) => handleCountryClick(country)}
-            onLogoClick={() => handleLogoClick()}
-            onPortfolioClick={() => handleShowAbout()}
-            onAboutClick={() => handleShowAbout()}
-            onContactClick={() => handleShowContact()}
-          />
-          <CountriesLineMobile
-            countries={countries}
-            offset={33}
-            useLogo={true}
-            usePortfolio={false}
-            useAbout={false}
-            useContact={false}
-            onCountryClick={(country) => handleCountryClick(country)}
-            onLogoClick={() => handleLogoClick()}
-            onPortfolioClick={() => handleShowAbout()}
-            onAboutClick={() => handleShowAbout()}
-            onContactClick={() => handleShowContact()}
-          />
-          <CountryDialog
-            country={selectedCountry}
-            showCountry={showCountry}
-            onClose={() => handleCloseCountry()}
-          />
-          <AboutDialog
-            showAbout={showAbout}
-            onClose={() => handleCloseAbout()}
-          />
-          <ContactOffcanvas
-            showContact={showContact}
-            onClose={() => handleCloseContact()}
-          />
-          {copyright}
-        </div>
+        <MobileLayout
+          countries={countries}
+          onCountryClick={handleCountryClick}
+          onLogoClick={handleLogoClick}
+          onAboutClick={handleShowAbout}
+          onContactClick={handleShowContact}
+        />
+        <CountryDialog
+          country={selectedCountry}
+          showCountry={showCountry}
+          onClose={handleCloseCountry}
+        />
+        <AboutDialog showAbout={showAbout} onClose={handleCloseAbout} />
+        <ContactOffcanvas
+          showContact={showContact}
+          onClose={handleCloseContact}
+        />
+        {copyright}
       </div>
     );
   } else if (error) {
