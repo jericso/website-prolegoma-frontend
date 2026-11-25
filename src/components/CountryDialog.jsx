@@ -16,39 +16,29 @@ const CountryDialog = ({ country, showCountry, onClose }) => {
           <Row>
             <Col>Region</Col>
             <Col>
-              {country && country.hasOwnProperty('region')
-                ? country.region
-                : '[no region]'}
+              {country?.region ?? '[no region]'}
             </Col>
           </Row>
           <Row>
             <Col>Population</Col>
             <Col>
-              {country && country.hasOwnProperty('population')
-                ? country.population.toLocaleString()
-                : '[no population]'}
+              {country?.population?.toLocaleString() ?? '[no population]'}
             </Col>
           </Row>
           <Row>
             <Col>Capital</Col>
             <Col>
-              {country && country.hasOwnProperty('capital')
-                ? country.capital[0]
-                : '[no capital]'}
+              {country?.capital?.[0] ?? '[no capital]'}
             </Col>
           </Row>
           <Row>
             <Col>
               <Map
                 latitude={
-                  country && country.capitalInfo.latlng !== undefined
-                    ? country.capitalInfo.latlng[0]
-                    : 0
+                  country?.capitalInfo?.latlng?.[0] ?? 0
                 }
                 longitude={
-                  country && country.capitalInfo.latlng !== undefined
-                    ? country.capitalInfo.latlng[1]
-                    : 0
+                  country?.capitalInfo?.latlng?.[1] ?? 0
                 }
               />
             </Col>

@@ -18,7 +18,6 @@ const CountriesLine = ({
     const elements = [];
     for (let i = 0; i <= 1; i++) {
       let country = countries[i + offset];
-      const logoIndex = 1;
       if (usePortfolio && i === 0) {
         elements.push(
           <td key={country.cca2} className="flag-cell-mobile">

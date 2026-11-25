@@ -106,3 +106,12 @@
 .reading-text {
   font-family: 'Times New Roman', Times, serif;
 }
+
+.image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}

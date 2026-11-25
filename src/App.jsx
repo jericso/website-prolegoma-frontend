@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import Button from 'react-bootstrap/Button';
 import CountriesLine from './components/CountriesLine';
 import CountriesLineMobile from './components/CountriesLineMobile';
 import AboutDialog from './components/AboutDialog';
@@ -11,41 +12,34 @@ import './App.css';
 const App = () => {
   const device = useDeviceDetection();
   const [countries, setCountries] = useState(null);
+  const [error, setError] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [showCountry, setShowCountry] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
   const [showContact, setShowContact] = useState(false);
 
-  document.body.style.backgroundPosition = '0px 0px';
-  document.body.style.minHeight = '100vh';
-  document.body.style.backgroundImage = 'linear-gradient(white, lightblue)';
-
-  useEffect(() => {
-    countryService
+  const loadCountries = useCallback(() => {
+    return countryService
       .getAll()
       .then((countries) => {
-        console.log(`total countries: ${countries.length}`);
         setCountries(countries);
+        setError(false);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(() => setError(true));
   }, []);
 
-  const handleLogoClick = () => {
-    countryService
-      .getAll()
-      .then((countries) => {
-        console.log(`total countries: ${countries.length}`);
-        setCountries(countries);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  useEffect(() => {
+    loadCountries();
+  }, [loadCountries]);
+
+  const handleLogoClick = () => loadCountries();
+
+  const handleRetry = () => {
+    setError(false);
+    loadCountries();
   };
 
   const handleCountryClick = (country) => {
-    console.log(country);
     setSelectedCountry(country);
     handleShowCountry();
   };
@@ -213,7 +207,21 @@ const App = () => {
         </div>
       </div>
     );
-  } else return null;
+  } else if (error) {
+    return (
+      <div className="app-status reading-text" role="alert">
+        <p>Sorry, we couldn&apos;t load the countries.</p>
+        <Button variant="dark" onClick={handleRetry}>
+          Try again
+        </Button>
+      </div>
+    );
+  }
+  return (
+    <div className="app-status reading-text" role="status">
+      Loading&hellip;
+    </div>
+  );
 };
 
 export default App;
