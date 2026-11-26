@@ -4,12 +4,15 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Map from './Map';
+import { countryName, primaryCapital } from '../utils/country';
 
 const CountryDialog = ({ country, showCountry, onClose }) => {
+  const capital = primaryCapital(country);
+
   return (
     <Modal show={showCountry} onHide={onClose}>
       <Modal.Header closeButton>
-        <Modal.Title>{country ? country.name['common'] : ''}</Modal.Title>
+        <Modal.Title>{countryName(country)}</Modal.Title>
       </Modal.Header>
       <Modal.Body className="reading-text">
         <Container>
@@ -28,17 +31,17 @@ const CountryDialog = ({ country, showCountry, onClose }) => {
           <Row>
             <Col>Capital</Col>
             <Col>
-              {country?.capital?.[0] ?? '[no capital]'}
+              {capital?.name || '[no capital]'}
             </Col>
           </Row>
           <Row>
             <Col>
               <Map
                 latitude={
-                  country?.capitalInfo?.latlng?.[0] ?? 0
+                  capital?.coordinates?.lat ?? 0
                 }
                 longitude={
-                  country?.capitalInfo?.latlng?.[1] ?? 0
+                  capital?.coordinates?.lng ?? 0
                 }
               />
             </Col>

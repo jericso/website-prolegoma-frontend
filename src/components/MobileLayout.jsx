@@ -1,5 +1,6 @@
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { countryKey, countryName, flagAlt, flagUrl } from '../utils/country';
 
 const FLAG_COUNT = 11;
 
@@ -46,16 +47,16 @@ const MobileLayout = ({
       <div className="flag-grid-mobile">
         {countries.slice(0, FLAG_COUNT).map((country) => (
           <button
-            key={country.cca2}
+            key={countryKey(country)}
             type="button"
             className="image-button"
             onClick={() => onCountryClick(country)}
           >
             <img
               className="flag-mobile"
-              src={country.flags.svg}
-              alt={country.flags.alt || `Flag of ${country.name.common}`}
-              title={country.name.common}
+              src={flagUrl(country)}
+              alt={flagAlt(country)}
+              title={countryName(country)}
             />
           </button>
         ))}

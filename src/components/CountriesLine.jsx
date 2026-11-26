@@ -1,6 +1,7 @@
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import ClickableImageElement from './ClickableImageElement';
+import { countryKey, countryName, flagAlt, flagUrl } from '../utils/country';
 
 const CountriesLine = ({
   countries,
@@ -38,20 +39,20 @@ const CountriesLine = ({
       if (!centerOpen || flagIndexes.includes(i)) {
         elements.push(
           <ClickableImageElement
-            key={country.cca2}
-            srcValue={country.flags['svg']}
+            key={countryKey(country)}
+            srcValue={flagUrl(country)}
             elementClass={'flag-cell'}
             imageClass={'flag'}
             hoverClass={'flag-grow'}
             onClick={() => onCountryClick(country)}
-            altValue={country.flags['alt']}
-            titleValue={country.name['common']}
+            altValue={flagAlt(country)}
+            titleValue={countryName(country)}
           />,
         );
       } else if (useLogo && i === logoIndex) {
         elements.push(
           <ClickableImageElement
-            key={country.cca2}
+            key={countryKey(country)}
             srcValue={'/logo.svg'}
             elementClass={'flag-cell-logo'}
             imageClass={'flag-logo'}
@@ -66,7 +67,7 @@ const CountriesLine = ({
           if (i === 2) {
             elements.push(
               <td
-                key={country.cca2}
+                key={countryKey(country)}
                 className="prolegoma-navigation"
                 colSpan="3"
               >
@@ -97,20 +98,20 @@ const CountriesLine = ({
           }
         } else if (useCompany && i === 2) {
           elements.push(
-            <td key={country.cca2} className="prolegoma-heading">
+            <td key={countryKey(country)} className="prolegoma-heading">
               Prolegoma
             </td>,
           );
         } else if (useCompany && i === 4) {
           elements.push(
-            <td key={country.cca2} className="prolegoma-directions">
+            <td key={countryKey(country)} className="prolegoma-directions">
               Click a flag for data on the country
               <br />
               Click our logo for new flags
             </td>,
           );
         } else {
-          elements.push(<td key={country.cca2} className="flag-cell"></td>);
+          elements.push(<td key={countryKey(country)} className="flag-cell"></td>);
         }
       }
     }
