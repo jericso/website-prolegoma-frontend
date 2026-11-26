@@ -3,14 +3,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const FLAG_COUNT = 11;
 
-const SITES = [
+const PROJECTS = [
   { title: '2200 Aldrich Avenue South', url: 'https://dev.2200aldrich.com' },
+  { title: 'Prolegoma Chat', url: 'https://chat.prolegoma.com' },
   { title: 'The Trade Arcade', url: 'https://tradearcade.org' },
   { title: 'Cafeteria Club', url: 'https://cafeteriaclub.org/' },
-];
-
-const PROTOTYPES = [
-  { title: 'Prolegoma Chat', url: 'https://chat.prolegoma.com' },
 ];
 
 const MobileLayout = ({
@@ -36,11 +33,8 @@ const MobileLayout = ({
     <>
       <header className="prolegoma-heading-mobile">Prolegoma</header>
       <Nav className="prolegoma-nav-mobile">
-        <NavDropdown title="Sites" id="nav-sites-mobile">
-          {renderLinks(SITES)}
-        </NavDropdown>
-        <NavDropdown title="Prototypes" id="nav-prototypes-mobile">
-          {renderLinks(PROTOTYPES)}
+        <NavDropdown title="Projects" id="nav-projects-mobile">
+          {renderLinks(PROJECTS)}
         </NavDropdown>
         <Nav.Link as="button" type="button" onClick={onAboutClick}>
           About

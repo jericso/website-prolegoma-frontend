@@ -17,11 +17,11 @@ const CountriesLine = ({
   const handleSelect = (eventKey) => {
     if (eventKey === '1.1') window.open('https://dev.2200aldrich.com', '_1-1');
     else if (eventKey === '1.2') {
-      window.open('https://tradearcade.org', '_1-2');
+      window.open('https://chat.prolegoma.com', '_1-2');
     } else if (eventKey === '1.3') {
-      window.open('https://cafeteriaclub.org/', '_1-3');
+      window.open('https://tradearcade.org', '_1-3');
     } else if (eventKey === '1.4') {
-      window.open('https://chat.prolegoma.com', '_1-4');
+      window.open('https://cafeteriaclub.org/', '_1-4');
     } else if (eventKey === '2') {
       onAboutClick();
     } else if (eventKey === '3') {
@@ -71,23 +71,18 @@ const CountriesLine = ({
                 colSpan="3"
               >
                 <Nav onSelect={handleSelect}>
-                  <NavDropdown title="Sites" id="nav-dropdown">
+                  <NavDropdown title="Projects" id="nav-dropdown">
                     <NavDropdown.Item eventKey="1.1">
                       2200 Aldrich Avenue South
                     </NavDropdown.Item>
                     <NavDropdown.Item eventKey="1.2">
-                      The Trade Arcade
-                    </NavDropdown.Item>
-                    <NavDropdown.Item eventKey="1.3">
-                      Cafeteria Club
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                  <NavDropdown title="Prototypes" id="nav-dropdown">
-                    <NavDropdown.Item eventKey="1.4">
                       Prolegoma Chat
                     </NavDropdown.Item>
-                    <NavDropdown.Item eventKey="1.5">
-                      Production Dashboard
+                    <NavDropdown.Item eventKey="1.3">
+                      The Trade Arcade
+                    </NavDropdown.Item>
+                    <NavDropdown.Item eventKey="1.4">
+                      Cafeteria Club
                     </NavDropdown.Item>
                   </NavDropdown>
                   <Nav.Item>
