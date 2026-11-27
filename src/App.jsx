@@ -158,8 +158,8 @@ const App = () => {
     );
   } else if (error) {
     return (
-      <div className="app-status reading-text" role="alert">
-        <p>Sorry, we couldn&apos;t load the countries.</p>
+      <div className="app-status" role="alert">
+        <p className="reading-text">Sorry, we couldn&apos;t load the countries.</p>
         <Button variant="dark" onClick={handleRetry}>
           Try again
         </Button>

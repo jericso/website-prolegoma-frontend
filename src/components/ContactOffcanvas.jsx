@@ -97,10 +97,11 @@ const ContactOffcanvas = ({ showContact, onClose }) => {
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Contact Us</Offcanvas.Title>
       </Offcanvas.Header>
-      <Offcanvas.Body className="reading-text">
+      <Offcanvas.Body>
         {status && (
           <Alert
             variant={status.variant}
+            className="reading-text"
             onClose={() => setStatus(null)}
             dismissible
           >
@@ -108,7 +109,7 @@ const ContactOffcanvas = ({ showContact, onClose }) => {
           </Alert>
         )}
         <Form noValidate onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="contactName">
+          <Form.Group className="mb-3 reading-text" controlId="contactName">
             <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
@@ -125,7 +126,7 @@ const ContactOffcanvas = ({ showContact, onClose }) => {
             </Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="contactEmail">
+          <Form.Group className="mb-3 reading-text" controlId="contactEmail">
             <Form.Label>Email</Form.Label>
             <Form.Control
               type="email"
@@ -144,7 +145,7 @@ const ContactOffcanvas = ({ showContact, onClose }) => {
             </Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="contactNumber">
+          <Form.Group className="mb-3 reading-text" controlId="contactNumber">
             <Form.Label>Phone number (optional)</Form.Label>
             <Form.Control
               type="tel"
@@ -161,7 +162,7 @@ const ContactOffcanvas = ({ showContact, onClose }) => {
             </Form.Control.Feedback>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="contactMessage">
+          <Form.Group className="mb-3 reading-text" controlId="contactMessage">
             <Form.Label>Message</Form.Label>
             <Form.Control
               as="textarea"
