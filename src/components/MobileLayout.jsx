@@ -7,8 +7,6 @@ const FLAG_COUNT = 11;
 const PROJECTS = [
   { title: '2200 Aldrich Avenue South', url: 'https://dev.2200aldrich.com' },
   { title: 'Prolegoma Chat', url: 'https://chat.prolegoma.com' },
-  { title: 'The Trade Arcade', url: 'https://tradearcade.org' },
-  { title: 'Cafeteria Club', url: 'https://cafeteriaclub.org/' },
 ];
 
 const MobileLayout = ({

@@ -19,10 +19,6 @@ const CountriesLine = ({
     if (eventKey === '1.1') window.open('https://dev.2200aldrich.com', '_1-1');
     else if (eventKey === '1.2') {
       window.open('https://chat.prolegoma.com', '_1-2');
-    } else if (eventKey === '1.3') {
-      window.open('https://tradearcade.org', '_1-3');
-    } else if (eventKey === '1.4') {
-      window.open('https://cafeteriaclub.org/', '_1-4');
     } else if (eventKey === '2') {
       onAboutClick();
     } else if (eventKey === '3') {
@@ -79,12 +75,6 @@ const CountriesLine = ({
                     <NavDropdown.Item eventKey="1.2">
                       Prolegoma Chat
                     </NavDropdown.Item>
-                    <NavDropdown.Item eventKey="1.3">
-                      The Trade Arcade
-                    </NavDropdown.Item>
-                    <NavDropdown.Item eventKey="1.4">
-                      Cafeteria Club
-                    </NavDropdown.Item>
                   </NavDropdown>
                   <Nav.Item>
                     <Nav.Link eventKey="2">About</Nav.Link>
@@ -111,7 +101,9 @@ const CountriesLine = ({
             </td>,
           );
         } else {
-          elements.push(<td key={countryKey(country)} className="flag-cell"></td>);
+          elements.push(
+            <td key={countryKey(country)} className="flag-cell"></td>,
+          );
         }
       }
     }
